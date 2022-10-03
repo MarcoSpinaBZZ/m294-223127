@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays manipulieren</title>
+    <script>
+        //Erstellen Sie ein Array
+        const names = ["Franz", "Jenny", "Karen", "Joseph", "Richard", "Florenze",]
+        //Sortieren Sie das Array alphabetisch
+        names.sort();
+        console.log(names);
+        //Caesar Cipher
+        const names2 = ["FRANZ", "JENNY", "KAREN", "JOSEPH", "RICHARD", "FLORENZE",]
+        console.log(names2);
+
+        function tOCaesar(input) {
+            const characters = input.split("");
+            const newCharacters = characters.map((character) => {
+                return String.fromCharCode((character.charCodeAt(0) -65 + 13) % 26 + 65) ;
+            });
+            return newCharacters.join("");
+        }
+        const newNames = [];
+
+        for(let i = 0; i < names2.length; i++) {
+        newNames.push(tOCaesar(names2[i]));
+        }
+       
+        console.log(newNames);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

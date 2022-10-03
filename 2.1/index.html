@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const fruits = ["Apple","Pear","Orange"];
+            fruits.push = ("Peach")
+            console.log(fruits);
+            //immutable addition of an element
+            const newFruits = [...fruits, "Peach"];
+            console.log(newFruits)
+        
+
+        //Mutable addition of an element
+        fruits.push("Peach");
+
+        //Immutable map to power 2 of the original number
+        const numbers = [2,5,10,22,56, 99]   
+        const numbersPower2 = numbers.map((number) => Math.pow(number, 2))
+        console.log(numbersPower2)
+        
+        //Filter the oddnumbers
+        const oddnumbers = numbers.filter((number) => number % 2 === 1)
+        console.log(oddnumbers)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

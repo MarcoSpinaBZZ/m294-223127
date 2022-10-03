@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekte manipulieren</title>
+    <script>
+        //Erstellen Sie ein Objekt, dass Ihr Lebenslauf darstellt:
+        let user = {
+            Name:"Marco",
+            Alter: 16,
+            Beruf: "Schüler",
+        };
+        //Geben Sie alle Schlüssel auf der Konsole aus:
+        console.log(Object.keys(user));
+        //Geben Sie alle Werte auf der Konsole aus:
+        console.log(Object.values(user));
+        //Erstellen Sie ein neues Objekt, welches nur die Information über Ihren Beruf enthält:
+        let beruf = {
+            Beruf: "Schüler",
+            NameFirma: "KSH",
+        };
+        console.log(beruf);
+        //Fügen Sie in das neue Objekt auch noch Ihr Lebensstatus (ledig, verheiratet, ..) ein:
+        beruf.lebensstatus = "ledig";
+        console.log(beruf);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
