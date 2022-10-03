@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Einfaches JavaScript Programm schreiben 2</title>
+    <script type="text/javascript">
+        const secret = Math.floor(Math.random() * 100);
+        let guess = null;
+        let tries = 0;
+
+        while (true) {
+            guess = prompt("Nummer?");
+            tries++;
+        
+        if (guess == secret) {
+            alert(`Du hast die versteckte Zahl gefunden! Du brauchtest ${tries} versuch/e!`);
+            break
+        }
+        else if (guess > secret) {
+            alert("Deine Antwort ist zu hoch!");
+        }
+        else if (guess < secret) {
+            alert("Deine Antwort ist zu niedrig!");
+        }
+    }
+     </script>
+    </head>
+    <body>
+    </body>
+</html>
