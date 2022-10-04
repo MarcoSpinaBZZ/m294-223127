@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Mit welchem Code kann jedes zweite Element aus folgender Liste entfernt werden:
+//a. Nein
+        const oddApples = document.querySelectorAll("#aepfel:nth-child(odd)");
+        oddApples.forEach((apple) => apple.remove());
+
+
+//b.Nein
+        const oddApples = document.querySelectorAll("#aepfel li:nth-child(odd)");
+        oddApples.forEach((apple) => apple.delete());
+
+
+//c. Ja
+        const oddApples = document.querySelectorAll("#aepfel li:nth-child(odd)");
+        oddApples.forEach((apple) => apple.remove());
+
+//d. Nein
+        document.deleteAllBySelector("#aepfel li:nth-child(odd)");
+
+
+    //Welcher Code selektiert das dritte Element von der Apfelliste?
+//a. Ja
+document.querySelectorAll('#aepfel li')[2]
+
+//b. Nein
+document.getElementsByTagName('li')[3]
+
+
+//c. Ja
+document.getElementsByTagName('li')[2]
+
+//d. Ja
+document.querySelectorAll('#aepfel li')[3]
+
+//e. Nein
+document.querySelector("#aepfel li:nth-child(3)")
+
+//Welcher Code erstellt ein neues Objekt mit Homers Adresse aus dem bestehenden Objekt?
+
+
+//a. Nein
+{}.add(cv.address)
+
+//b. Nein
+{cv.address}
+
+//c. Ja
+{...cv.address}
+
+//d. Ja
+Object.assign(cv.address, {});
+
+//In Objekte können Arrays verschachtelt werden.
+Wahr
+//In Arrays können Objekte verschachtelt werden.
+Wahr
+
+//Welcher Code fügt den li-Elementen der Äpfel mit mehr als einem 'e' im Namen die CSS-Klasse 'vitaminE' hinzu?
+
+//a.
+const apples = document.querySelectorAll("#aepfel li");
+apples.forEach((apple) => {
+  if(apple.innerText.split('e').length - 1 >= 2) {
+    apple.class.push('vitaminE');
+  }
+});
+
+
+//b.
+const apples = document.querySelectorAll("#aepfel li");
+apples.forEach((apple) => {
+  if(apple.split('e').length - 1 >= 2) {
+    apple.classList.add('vitaminE')
+  }
+});
+
+//c.
+const apples = document.querySelectorAll("#aepfel li");
+apples.forEach((apple) => {
+  if(apple.innerText.split('e').length - 1 >= 2) {
+    apple.classList += 'vitaminE';
+  }
+});
+
+
+//d.
+const apples = document.querySelectorAll("#aepfel li");
+apples.forEach((apple) => {
+  if(apple.innerText.split('e').length - 1 >= 2) {
+    apple.classList.push('vitaminE')
+  }
+});
+
+
+//e.
+const apples = document.querySelectorAll("#aepfel li");
+apples.forEach((apple) => {
+  if(apple.innerText.split('e').length - 1 >= 2) {
+    apple.classList.add('vitaminE')
+  }
+});
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
