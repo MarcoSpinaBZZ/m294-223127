@@ -1,0 +1,12 @@
+#playground {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#playground img {
+    transition: .5s;
+}
+
+#playground img.hidden {
+    filter: brightness(0) blur(0);
+}
