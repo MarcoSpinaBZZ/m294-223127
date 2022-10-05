@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex abfragen</title>
+    <script>
+      const createCell = (cellText) => {
+        const cell = document.createElement("td");
+        cell.innerText = cellText;
+        return cell;
+      }
+/*const addPokemon = (pokemon) => {
+    const display = document.getElementById("display");
+    const tableRow = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    idCell.innerText = pokemon.id;
+    idCell.appendChild(idCell);
+
+    const nameCell = document.createElement("td");
+    nameCell.innerText = pokemon.name;
+    nameCell.appendChild(nameCell);
+
+    const WeightCell = document.createElement("td");
+    WeightCell.innerText = pokemon.weight;
+    WeightCell.appendChild(WeightCell);
+
+    const HeightCell = document.createElement("td");
+    HeightCell.innerText = pokemon.weight;
+    HeightCell.appendChild(HeightCell);
+
+    display.appendChild(tableRow);
+}
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  event.preventDefault(); //damit wird prevented dass die Website neu geladen wird wenn man was eingibt*/
+
+      // Mit der Function Syntax
+      //function addPokemon(pokemon) {
+      //}
+
+      const addPokemon = (pokemon) => {
+        const display = document.getElementById("display");
+        const tableRow = document.createElement("tr");
+
+        tableRow.append(
+          createCell(pokemon.id), 
+          createCell(pokemon.name), 
+          createCell(pokemon.weight), 
+          createCell(pokemon.height)
+        );
+
+        display.appendChild(tableRow);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const pokemonForm = document.getElementById("pokemonForm");
+
+        pokemonForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const pokemonFormData = new FormData(pokemonForm);
+
+          fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonFormData.get("identifier")}/`)
+            // .then((response) => response.json())
+            // .then((response) => {
+            //   return response.json(); 
+            // })
+            .then((response) => {
+              const identifierInput = document.getElementById('identifierInput');
+              if(response.status === 404) {
+                // Nicht die beste Möglichkeit den Fehler im Formular anzuzeigen.
+                // Besser wäre die HTML Validation API zu verwenden.
+                identifierInput.style.borderColor = "red";
+                alert("Dieses Pokemon gibt es noch nicht.");
+              } else {
+                identifierInput.style.borderColor = "inherit";
+              }
+              return response.json();
+            })
+            .then((data) => {
+              addPokemon(data);
+            });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>Erfahre hier mehr über deine Lieblingspokemons</h1>
+    <form id="pokemonForm">
+      <label for="identifierInput">Pokemonname oder -id</label>
+      <input type="text" name="identifier" id="identifierInput" required />
+      <button type="submit">Abfrage starten</button>
+    </form>
+    <h2>Informationen zu den abgefragten Pokemons</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Gewicht</th>
+          <th>Grösse</th>
+        </tr>
+      </thead>
+      <tbody id="display">
+      </tbody>
+    </table>
+  </body>
+
+</html>

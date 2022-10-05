@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newAlbum = document.createElement("ol");
     newAlbum.innerText = "Test"
-    newAlbum.appendChild(newAlbum)
+    newAlbum.appendChild(newAlbum)  
 
 })
 
